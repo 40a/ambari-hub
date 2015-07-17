@@ -19,26 +19,26 @@ resource "aws_instance" "ambari-master" {
       key_file = "${var.private_key}"
   }
   provisioner "file" {
-      source = "bootstrap_server.sh"
-      destination = "../../scripts/terraform/bootstrap_server.sh"
+      source = "../../scripts/terraform/bootstrap_server.sh"
+      destination = "bootstrap_server.sh"
   }
 
   provisioner "file" {
-      source = "agent-hostname-detector.sh"
-      destination = "../../scripts/terraform/agent-hostname-detector.sh"
+      source = "../../scripts/terraform/agent-hostname-detector.sh"
+      destination = "agent-hostname-detector.sh"
   }
 
   provisioner "file" {
-      source = "ambari-agent.ini"
-      destination = "../../files/terraform/ambari-agent.ini"
+      source = "../../files/terraform/ambari-agent.ini"
+      destination = "ambari-agent.ini"
   }
 
   provisioner "remote-exec" {
       inline = [
-      "chmod +x ~/bootstrap_server.sh",
+      "chmod +x bootstrap_server.sh",
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
       "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
-      "~/bootstrap_server.sh ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}",
+      "./bootstrap_server.sh ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}",
       "sudo cp -f ambari-agent.ini /etc/ambari-agent/conf",
       "sudo mkdir -p /var/run/ambari-agent/",
       "sudo /sbin/chkconfig ambari-agent on",

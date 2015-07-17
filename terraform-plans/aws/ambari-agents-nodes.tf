@@ -19,30 +19,30 @@ resource "aws_instance" "ambari-agent" {
       key_file = "${var.private_key}"
   }
   provisioner "file" {
-      source = "bootstrap_agent.sh"
-      destination = "../../scripts/terraform/bootstrap_agent.sh"
+      source = "../../scripts/terraform/bootstrap_agent.sh"
+      destination = "bootstrap_agent.sh"
   }
 
   provisioner "file" {
-      source = "agent-hostname-detector.sh"
-      destination = "../../scripts/terraform/agent-hostname-detector.sh"
+      source = "../../scripts/terraform/agent-hostname-detector.sh"
+      destination = "agent-hostname-detector.sh"
   }
 
   provisioner "file" {
-      source = "ambari-agent.ini"
-      destination = "../../files/terraform/ambari-agent.ini"
+      source = "../../files/terraform/ambari-agent.ini"
+      destination = "ambari-agent.ini"
   }
 
 # The part below can be done MUCH cleaner, for now it works but we're doing inline commands with scripts, it's just plain ugly.
 
   provisioner "remote-exec" {
       inline = [
-      "chmod +x ~/bootstrap_agent.sh",
+      "chmod +x bootstrap_agent.sh",
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
       "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
       "sudo cp -f ambari-agent.ini /etc/ambari-agent/conf",
-      "~/bootstrap_agent.sh ${var.hostname.agents}-${count.index}.${var.domain_name} ${var.hostname.master}.${var.domain_name}",
-      "echo ${self.private_ip} ${var.hostname.agents}-${count.index}.${var.domain_name} | sudo tee --append /etc/hosts",
+      "./bootstrap_agent.sh ${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name}",
+      "echo ${self.private_ip} ${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} | sudo tee --append /etc/hosts",
       "sudo mkdir -p /var/run/ambari-agent/",
       "sudo /sbin/chkconfig ambari-agent on",
       "sudo service ambari-agent start"
