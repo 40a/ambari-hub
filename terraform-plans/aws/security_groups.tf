@@ -12,15 +12,15 @@ resource "aws_security_group" "default" {
     self      = true
   }
 
-  # Allows all inbound traffic from the internet.
+  # Allows all inbound traffic from the CIDR.
   ingress {
     from_port   = "0"
     to_port     = "0"
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.security_group.cidr_blocks}"]
   }
 
-  # Allows all outbound traffic.
+  # Allows all outbound traffic to internet.
   egress {
     from_port   = 0
     to_port     = 0

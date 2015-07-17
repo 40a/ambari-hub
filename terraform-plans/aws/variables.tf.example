@@ -104,6 +104,12 @@ variable "instance_ami" {
   }
 }
 
+variable "security_group" {
+  default = {
+    cidr_blocks      = "0.0.0.0/0"
+  }
+}
+
 variable "hostname" {
   description = "Hostnames (short) for the types of host."
   default = {
