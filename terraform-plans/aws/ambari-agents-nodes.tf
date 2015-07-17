@@ -1,3 +1,5 @@
+# ebs block store (/dev/sdf) will actually (internally on the instance) be called /dev/xvdf
+
 /* Ambari master instances */
 resource "aws_instance" "ambari-agent" {
   instance_type     = "${var.instance_type.agent}"
@@ -8,8 +10,21 @@ resource "aws_instance" "ambari-agent" {
   source_dest_check = false
   security_groups   = ["${aws_security_group.default.id}"]
   tags {
-    Name     = "${var.hostname.agents}"
-    Role     = "Ambari Agent ${count.index}."
+    Name            = "${var.hostname.agents}-${count.index}"
+    Role            = "Ambari Agent ${count.index}."
+  }
+  root_block_device {
+  volume_size             = "${var.root_block_device.volume_size}"
+  iops                    = "${var.root_block_device.iops}"
+  delete_on_termination   = "${var.root_block_device.delete_on_termination}"
+  }
+  ebs_block_device {
+    device_name           = "${var.ebs_block_device.device_name}"
+    encrypted             = "${var.ebs_block_device.encrypted}"
+    volume_type           = "${var.ebs_block_device.volume_type}"
+    volume_size           = "${var.ebs_block_device.volume_size}"
+    iops                  = "${var.ebs_block_device.iops}"
+    delete_on_termination = "${var.ebs_block_device.delete_on_termination}"
   }
 
   connection {
@@ -37,6 +52,10 @@ resource "aws_instance" "ambari-agent" {
 
   provisioner "remote-exec" {
       inline = [
+      "sudo mkfs -t ext4 ${var.ebs_block_device.instance_volume_name}",
+      "sudo mkdir /hadoop",
+      "echo '${var.ebs_block_device.instance_volume_name}    /hadoop ext4   defaults,noatime    0  2' | sudo tee --append /etc/fstab",
+      "sudo mount -a",
       "chmod +x bootstrap_agent.sh",
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
       "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
@@ -48,7 +67,7 @@ resource "aws_instance" "ambari-agent" {
       "sudo service ambari-agent start"
       ]
   }
-#  depends_on = "aws_route53_record.ambari_masters_private"
+  depends_on = "aws_route53_record.ambari_masters_private"
 }
 
 
