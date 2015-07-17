@@ -1,0 +1,40 @@
+{
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
+    "aws_region": "{{env `AWS_REGION`}}",
+    "aws_vpc_id": "{{env `AWS_VPC`}}",
+    "aws_subnet_id": "{{env `AWS_SUBNET`}}",
+    "aws_source_ami": "{{env `AWS_SOURCE_AMI`}}",
+    "aws_instance_type": "{{env `AWS_INSTANCE_TYPE`}}",
+    "access_token": "{{env `ATLAS_TOKEN`}}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "ami_name": "CentOS 7 Ambari Server 2.1.0 {{timestamp}}",
+    "ami_description": "CentOS 7 Ambari Server build, ready to run HDP 2.3 on Ambari 2.1.X.",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "{{user `aws_region`}}",
+    "vpc_id": "{{user `aws_vpc_id`}}",
+    "subnet_id": "{{user `aws_subnet_id`}}",
+    "source_ami": "{{user `aws_source_ami`}}",
+    "instance_type": "{{user `aws_instance_type`}}",
+    "ssh_username": "centos",
+    "ssh_timeout": "10m"
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum install ambari-server -y",
+        "sudo ambari-server setup --silent",
+        "sudo /sbin/chkconfig ambari-server off",
+        "sudo rm -rf /tmp/.s.PGSQL.5432.*",
+        "sudo chmod 777 /var/log/hadoop-metrics",
+        "sudo sed -i \"s/agent.task.timeout=900/agent.task.timeout=2000/\" /etc/ambari-server/conf/ambari.properties",
+        "echo All Done, have fun!"
+      ]
+    }
+  ]
+}

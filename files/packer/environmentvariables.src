@@ -1,0 +1,15 @@
+# This is just an example, you can source this file (after filling the vars of coarse :P).
+
+export AWS_ACCESS_KEY=AKIXXXXXXXXXXX
+export AWS_SECRET_KEY=VERYSUPERSECRETKEY
+export AWS_REGION=eu-west-1
+export AWS_SOURCE_AMI=ami-e4ff5c93
+export AWS_INSTANCE_TYPE=m3.medium
+export AWS_VPC=vpc-0a85036f
+export AWS_SUBNET=subnet-7b50ed22
+
+# AWS_ACCESS_KEY_ID (ID for your AWS secret key)
+# AWS_ACCESS_KEY (AWS secret key)
+# AWS_REGION (the region to build the AMI in, e.g. eu-west-1)
+# AWS_SOURCE_AMI (the source AMI to build the image off, e.g. ami-394ecc4e)
+# AWS_INSTANCE_TYPE (the instance type to use to build the image, e.g. m1.medium)

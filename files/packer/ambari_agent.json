@@ -1,0 +1,52 @@
+{
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
+    "aws_region": "{{env `AWS_REGION`}}",
+    "aws_vpc_id": "{{env `AWS_VPC`}}",
+    "aws_subnet_id": "{{env `AWS_SUBNET`}}",
+    "aws_source_ami": "{{env `AWS_SOURCE_AMI`}}",
+    "aws_instance_type": "{{env `AWS_INSTANCE_TYPE`}}",
+    "access_token": "{{env `ATLAS_TOKEN`}}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "ami_name": "CentOS 7 Ambari Agent 2.1.0 {{timestamp}}",
+    "ami_description": "CentOS 7 Ambari Agent build, ready to run HDP 2.3 on Ambari 2.1.X.",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "{{user `aws_region`}}",
+    "vpc_id": "{{user `aws_vpc_id`}}",
+    "subnet_id": "{{user `aws_subnet_id`}}",
+    "source_ami": "{{user `aws_source_ami`}}",
+    "instance_type": "{{user `aws_instance_type`}}",
+    "ssh_username": "centos",
+    "ssh_timeout": "10m"
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "echo 'retries=0' | sudo tee --append /etc/yum.conf > /dev/null",
+        "echo 'timeout=180' | sudo tee --append /etc/yum.conf > /dev/null",
+        "sudo yum update -y",
+        "sudo yum install wget epel-release -y",
+        "sudo wget -nv http://dev.hortonworks.com.s3.amazonaws.com/ambari/centos7/2.x/updates/2.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo",
+        "sudo yum makecache",
+        "sudo yum install tar git bzip2 wget libcurl curl bind-utils openssh-server openssh-clients krb5-workstation -y",
+        "curl -o ~/Anaconda-2.2.0-Linux-x86_64.sh https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.2.0-Linux-x86_64.sh",
+        "sudo bash ~/Anaconda-2.2.0-Linux-x86_64.sh -b -p /opt/anaconda",
+        "rm ~/Anaconda-2.2.0-Linux-x86_64.sh",
+        "sudo curl -o /usr/bin/jq http://stedolan.github.io/jq/download/linux64/jq",
+        "sudo chmod +x /usr/bin/jq",
+        "sudo mkdir -p /usr/lib/hadoop/lib",
+        "sudo mkdir -p /var/log/hadoop-metrics",
+        "sudo yum install ambari-agent -y",
+        "sudo /sbin/chkconfig ambari-agent off",
+        "sudo mkdir -p /opt/ambari-shell",
+        "sudo curl -o /opt/ambari-shell/ambari-shell.jar https://s3-eu-west-1.amazonaws.com/maven.sequenceiq.com/releases/com/sequenceiq/ambari-shell/0.1.25/ambari-shell-0.1.25.jar",
+        "echo All Done, have fun!"
+      ]
+    }
+  ]
+}
