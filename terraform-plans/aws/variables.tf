@@ -1,0 +1,120 @@
+# Add your variables here :)
+
+variable "access_key" {
+  description = "The aws access key."
+  default = ""
+}
+
+variable "secret_key" {
+  description = "The aws secret key."
+  default = ""
+}
+
+variable "bootstrap_user" {
+  description = "The user with which you want to bootstrap the machines, in the case of the default packer builds this will be centos."
+  default = "centos"
+}
+
+variable "key_name" {
+  description = "The aws ssh key name."
+  default = "ambari-key"
+}
+
+variable "key_file" {
+  description = "The ssh public key for using with the cloud provider. This is the one that will be uploaded to AWS with the var.key_name as name."
+  default = "~/.ssh/pubkey"
+}
+
+variable "private_key" {
+  description = "Your private key used for bootstrapping the nodes, should NOT be password protected (the one related to var.key_file). Needed for the remote-exec's."
+  default = "~/.ssh/privkey_nopass"
+}
+
+variable "region" {
+  description = "The AWS region to create resources in."
+  default = "eu-west-1"
+}
+
+variable "availability_zone" {
+  description = "Availability zone for Fusang."
+  default = "eu-west-1b"
+}
+
+variable "vpc_cidr_block" {
+  description = "Cidr block for the VPC."
+  default = "10.0.0.0/16"
+}
+
+variable "subnet_availability_zone" {
+  description = "Availability zone for Fusang subnet."
+  default = "eu-west-1b"
+}
+
+variable "public_subnet_cidr_block" {
+  description = "CIDR for public subnet"
+  default     = "10.0.0.0/24"
+}
+
+variable "ambari-agents" {
+  description = "The number of ambari-agents."
+  default = "5"
+}
+
+variable "slave_block_device" {
+  description = "Not implemented yet :)"
+  default = {
+    volume_size = 30
+  }
+}
+
+variable "instance_type" {
+  description = "Ambari means master, will rename quiet a lot of variables later on to make things more clear ;-)"
+  default = {
+    ambari = "m3.medium"
+    agent = "m4.large"
+  }
+}
+
+variable "instance_ami" {
+  description = "The AMI's that are created from the packer builds, please be AWARE that the packer builds make use of the official CentOS 7 ami's, this means you can't publish them public."
+  default = {
+    ambari_server    = "ami-xxxxxxxx"
+    ambari-agent     = "ami-xxxxxxxx"
+    management       = ""
+  }
+}
+
+variable "hostname" {
+  description = "Hostnames (short) for the types of host."
+  default = {
+    master = "ambari-master"
+    agents = "ambari-agent"
+  }
+}
+
+variable "prefix_hostname_ambari_aws" {
+  description = "Not used right now, things are hardcoded until multiple availability zones are done in the terraform plans. "
+  default = {
+    eu_west_1a = ""
+    eu_west_1b = ""
+    eu_west_1c = ""
+  }
+}
+
+variable "route53_public_horizon" {
+  description = "Information for public hosted zone, should be pre-registered, because of the fact that DNS is slow with replication of it's NS servers."
+  default = {
+  zone_id     = "Z3KJXXXXXXXXX"
+  }
+}
+
+# The Ambari way of deploying Hadoop is a bit weird, it does a lot of automatic hostname detections and stuff, which fails miserable in a AWS environment, esspecially when you want to deliver the platform on a public level (lots of redirection to internal AWS hostnames).
+
+variable "domain_name" {
+  description = "Public AND private DNS name, not used right now, will be used in the very near future."
+  default = {
+    full    = "analytics.example.com"
+    sub     = "analytics"
+    zone    = "example.com"
+  }
+}
