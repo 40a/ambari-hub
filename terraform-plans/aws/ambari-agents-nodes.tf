@@ -41,7 +41,7 @@ resource "aws_instance" "ambari-agent" {
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
       "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
       "sudo cp -f ambari-agent.ini /etc/ambari-agent/conf",
-      "./bootstrap_agent.sh ${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name}",
+      "./bootstrap_agent.sh ${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}",
       "echo ${self.private_ip} ${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} | sudo tee --append /etc/hosts",
       "sudo mkdir -p /var/run/ambari-agent/",
       "sudo /sbin/chkconfig ambari-agent on",
