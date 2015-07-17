@@ -75,6 +75,26 @@ variable "instance_type" {
   }
 }
 
+variable "root_block_device" {
+  default = {
+    volume_size           = 15
+    iops                  = 0
+    delete_on_termination = true
+  }
+}
+
+variable "ebs_block_device" {
+  default = {
+    device_name           = "/dev/sdf"
+    instance_volume_name  = "/dev/xvdf"
+    encrypted             = false
+    volume_type           = "standard"
+    volume_size           = 30
+    iops                  = 0
+    delete_on_termination = true
+  }
+}
+
 variable "instance_ami" {
   description = "The AMI's that are created from the packer builds, please be AWARE that the packer builds make use of the official CentOS 7 ami's, this means you can't publish them public."
   default = {
