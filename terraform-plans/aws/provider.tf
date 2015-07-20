@@ -14,6 +14,9 @@ resource "aws_vpc" "default" {
   cidr_block           = "${var.vpc_cidr_block}"
   enable_dns_support   = true
   enable_dns_hostnames = true
+  tags {
+        Name = "Ambari VPC"
+    }
 }
 
 resource "aws_vpc_dhcp_options" "default" {
