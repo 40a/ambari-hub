@@ -14,7 +14,7 @@ resource "aws_instance" "ambari-agent" {
     Role            = "Ambari Agent ${count.index}."
   }
   root_block_device {
-  encrypted               = "${var.root_block_device.true}"
+  encrypted               = "${var.root_block_device.encrypted}"
   volume_size             = "${var.root_block_device.volume_size}"
   iops                    = "${var.root_block_device.iops}"
   delete_on_termination   = "${var.root_block_device.delete_on_termination}"
