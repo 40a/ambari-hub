@@ -11,6 +11,19 @@ resource "aws_instance" "ambari-master" {
     Role     = "Ambari Master server."
     URL      = "http://${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}:8080"
   }
+  root_block_device {
+  volume_size             = "${var.root_block_device.volume_size}"
+  iops                    = "${var.root_block_device.iops}"
+  delete_on_termination   = "${var.root_block_device.delete_on_termination}"
+  }
+  ebs_block_device {
+    device_name           = "${var.ebs_block_device.device_name}"
+    encrypted             = "${var.ebs_block_device.encrypted}"
+    volume_type           = "${var.ebs_block_device.volume_type}"
+    volume_size           = "${var.ebs_block_device.volume_size}"
+    iops                  = "${var.ebs_block_device.iops}"
+    delete_on_termination = "${var.ebs_block_device.delete_on_termination}"
+  }
 
   connection {
       type = "ssh"
@@ -40,6 +53,10 @@ resource "aws_instance" "ambari-master" {
 
   provisioner "remote-exec" {
       inline = [
+      "sudo mkfs -t ext4 ${var.ebs_block_device.instance_volume_name}",
+      "sudo mkdir /hadoop",
+      "echo '${var.ebs_block_device.instance_volume_name}    /hadoop ext4   defaults,noatime    0  2' | sudo tee --append /etc/fstab",
+      "sudo mount -a",
       "chmod +x bootstrap_server.sh",
       "chmod +x bootstrap_agent.sh",
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
