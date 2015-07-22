@@ -77,6 +77,7 @@ variable "instance_type" {
 
 variable "root_block_device" {
   default = {
+    encrypted             = false
     volume_size           = 15
     iops                  = 0
     delete_on_termination = true

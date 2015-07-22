@@ -12,6 +12,7 @@ resource "aws_instance" "ambari-master" {
     URL      = "http://${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}:8080"
   }
   root_block_device {
+  encrypted               = "${var.root_block_device.encrypted}"
   volume_size             = "${var.root_block_device.volume_size}"
   iops                    = "${var.root_block_device.iops}"
   delete_on_termination   = "${var.root_block_device.delete_on_termination}"
