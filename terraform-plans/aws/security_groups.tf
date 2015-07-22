@@ -28,7 +28,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags {
-    Name = "Ambari-SecurityGroup"
+    Name = "Ambari security group"
   }
 }
 

@@ -11,7 +11,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   depends_on              = ["aws_internet_gateway.public"]
   tags {
-    Name = "public"
+    Name = "Ambari public subnet"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_route_table" "public" {
     gateway_id = "${aws_internet_gateway.public.id}"
   }
   tags {
-    Name = "main"
+    Name = "Ambari routing table public subnet."
   }
 }
 

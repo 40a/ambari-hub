@@ -1,6 +1,6 @@
 # ebs block store (/dev/sdf) will actually (internally on the instance) be called /dev/xvdf
 
-/* Ambari master instances */
+/* Ambari agent instances */
 resource "aws_instance" "ambari-agent" {
   instance_type     = "${var.instance_type.agent}"
   ami               = "${var.instance_ami.ambari-agent}"

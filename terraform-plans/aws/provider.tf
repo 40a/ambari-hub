@@ -23,7 +23,7 @@ resource "aws_vpc_dhcp_options" "default" {
     domain_name = "${var.domain_name}"
     domain_name_servers = ["10.0.0.2"]
     tags {
-        Name = "DHCP Options"
+        Name = "Ambari DHCP Options"
     }
 }
 
