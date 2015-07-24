@@ -24,20 +24,38 @@ resource "aws_route53_record" "ambari_masters_public" {
     records    = ["${aws_instance.ambari-master.public_ip}"]
 }
 
-resource "aws_route53_record" "ambari_agent_private" {
-    count      = "${var.ambari-agents}"
+resource "aws_route53_record" "ambari_serveragent_private" {
+    count      = "${var.ambari-serveragents}"
     zone_id    = "${aws_route53_zone.private_horizon.zone_id}"
-    name       = "${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
+    name       = "${var.hostname.serveragents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
     type       = "A"
     ttl        = "60"
-    records    = ["${element(aws_instance.ambari-agent.*.private_ip, count.index)}"]
+    records    = ["${element(aws_instance.ambari-agents-server.*.private_ip, count.index)}"]
 }
 
-resource "aws_route53_record" "ambari_agent_public" {
-    count      = "${var.ambari-agents}"
+resource "aws_route53_record" "ambari_serveragent_public" {
+    count      = "${var.ambari-serveragents}"
     zone_id    = "${var.route53_public_horizon.zone_id}"
-    name       = "${var.hostname.agents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
+    name       = "${var.hostname.serveragents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
     type       = "A"
     ttl        = "60"
-    records    = ["${element(aws_instance.ambari-agent.*.public_ip, count.index)}"]
+    records    = ["${element(aws_instance.ambari-agents-server.*.public_ip, count.index)}"]
+}
+
+resource "aws_route53_record" "ambari_clientagent_private" {
+    count      = "${var.ambari-clientagents}"
+    zone_id    = "${aws_route53_zone.private_horizon.zone_id}"
+    name       = "${var.hostname.clientagents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
+    type       = "A"
+    ttl        = "60"
+    records    = ["${element(aws_instance.ambari-agents-client.*.private_ip, count.index)}"]
+}
+
+resource "aws_route53_record" "ambari_clientagent_public" {
+    count      = "${var.ambari-clientagents}"
+    zone_id    = "${var.route53_public_horizon.zone_id}"
+    name       = "${var.hostname.clientagents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone}"
+    type       = "A"
+    ttl        = "60"
+    records    = ["${element(aws_instance.ambari-agents-client.*.public_ip, count.index)}"]
 }
