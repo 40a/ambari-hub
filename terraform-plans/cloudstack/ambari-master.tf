@@ -8,6 +8,14 @@ resource "cloudstack_instance" "ambari-master" {
     depends_on        = "cloudstack_instance.bastion"
 }
 
+resource "cloudstack_disk" "ambari-master" {
+  name             = "ambari-master-data1"
+  attach           = "true"
+  disk_offering    = "${var.disk_type.large}"
+  virtual_machine  = "${cloudstack_instance.ambari-master.name}"
+  zone             = "${var.vpc_zone}"
+}
+
 resource "cloudstack_port_forward" "ambari-master" {
     ipaddress = "${cloudstack_ipaddress.ambari.ipaddress}"
 
@@ -24,7 +32,7 @@ resource "cloudstack_port_forward" "ambari-master" {
         public_port = 8080
         virtual_machine = "${cloudstack_instance.ambari-master.id}"
     }
-    depends_on = ["cloudstack_instance.ambari-master"]
+    depends_on = ["cloudstack_instance.ambari-master", "cloudstack_disk.ambari-master"]
 
     connection {
       type              = "ssh"
@@ -52,4 +60,24 @@ resource "cloudstack_port_forward" "ambari-master" {
       source = "../../files/terraform/ambari-agent.ini"
       destination = "ambari-agent.ini"
     }
+  provisioner "remote-exec" {
+      inline = [
+      "sudo parted /dev/xvdb mkpart ext4 0% 100%",
+      "sudo mkfs -t ext4 /dev/xvdb1",
+      "sudo mkdir /hadoop",
+      "echo '/dev/xvdb1    /hadoop ext4   defaults,noatime    0  2' | sudo tee --append /etc/fstab",
+      "sudo mount -a",
+      "chmod +x bootstrap_server.sh",
+      "chmod +x bootstrap_agent.sh",
+      "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
+      "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
+      "./bootstrap_server.sh ${var.hostname.ambari-master}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.ambari-master}.${var.domain_name.sub}.${var.domain_name.zone}",
+      "sudo cp -f ambari-agent.ini /etc/ambari-agent/conf",
+      "./bootstrap_agent.sh ${var.hostname.ambari-master}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.ambari-master}.${var.domain_name.sub}.${var.domain_name.zone}",
+      "sudo mkdir -p /var/run/ambari-agent/",
+      "sudo /sbin/chkconfig ambari-agent on",
+      "sudo /sbin/chkconfig ambari-server on",
+      "sudo reboot"
+      ]
+  }
 }
