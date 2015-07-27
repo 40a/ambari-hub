@@ -1,0 +1,120 @@
+variable "api_url" {
+  description = "The URL for your Cloudstack mgmt host."
+  default = "https://cloudstack.example.com/client/api"
+}
+
+variable "api_key" {
+  description = "The Cloudstack API Key."
+  default = "TjopTjop"
+}
+
+variable "secret_key" {
+  description = "The Cloudstack API Secret."
+  default = "flabberDyFlebbEr30"
+}
+
+variable "username" {
+  description = "The username you want to use against the SSH hosts."
+  default = "toor"
+}
+
+variable "private_key" {
+  description = "Your private key you want to use against the SSH hosts."
+  default = "~/.ssh/private.key"
+}
+
+variable "instance_name" {
+  description = "Hostnames (short) for the types of host."
+  default = {
+    bastion              = "ambari-bastion"
+    ambari-master        = "ambari-master"
+    ambari-serveragent   = "ambari-server-agent"
+    ambari-clientagent   = "ambari-client-agent"
+  }
+}
+
+variable "instance_type" {
+  default = {
+    bastion              = "instance_large-ha"
+    ambari-master        = "instance_large-ha"
+    ambari-serveragent   = "instance_large-ha"
+    ambari-clientagent   = "instance_large-ha"
+  }
+}
+
+variable "instance_template" {
+  description = "The templates used within Cloudstack for the instances."
+  default = {
+    bastion             = "5ac61dce-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    ambari-master       = "5ac61dce-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    ambari-serveragent  = "5ac61dce-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    ambari-clientagent  = "5ac61dce-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+  }
+}
+
+variable "disk_type" {
+  default = {
+    large = "ext-large"
+    xlarge = "ext-xxlarge"
+  }
+}
+
+variable "ambari-serveragents" {
+  description = "The number of ambari-serveragents."
+  default = "3"
+}
+
+variable "ambari-clientagents" {
+  description = "The number of ambari-clientagents."
+  default = "3"
+}
+
+variable "vpc_cidr_block" {
+  description = "Cidr block for the VPC."
+  default = "10.0.0.0/8"
+}
+
+variable "vpc_name" {
+  description = "Name for the VPC."
+  default = "MyAwesomeVPCName"
+}
+
+variable "vpc_offering" {
+  description = "Offering for the VPC (ID)."
+  default = "Default VPC offering"
+}
+
+variable "vpc_zone" {
+  description = "Zone for the VPC."
+  default = "MY-CS-ZONE"
+}
+
+variable "network_name" {
+  description = "Name for the network network."
+  default = {
+    management = "HADOOP_MANAGEMENT"
+    analytics  = "HADOOP_PRODUCTION"
+  }
+}
+
+variable "network_cidr" {
+  description = "Cidr for the network."
+  default = {
+    management = "10.0.10.0/24"
+    analytics  = "10.0.20.0/24"
+  }
+}
+
+variable "network_offering" {
+  description = "Offering for the management network."
+  default = "CS-NETWORKOFFERING-1"
+}
+
+variable "safe_ips" {
+  description = "The IP addresses of safe zones, for example your home and/or office."
+  default = {
+    home      = "192.168.178.100/32"
+    office    = "10.0.100.0/24"
+    customer  = "10.0.200.0/24"
+  }
+}
