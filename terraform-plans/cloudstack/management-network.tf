@@ -49,6 +49,6 @@ resource "cloudstack_ipaddress" "management" {
     vpc = "${cloudstack_vpc.main.name}"
 }
 
-output "management-publicip" {
+/* output "management-publicip" {
     value = "${cloudstack_ipaddress.management.ipaddress}"
-}
+} */

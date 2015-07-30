@@ -34,12 +34,12 @@ resource "aws_instance" "ambari-agents-server" {
       key_file = "${var.private_key}"
   }
   provisioner "file" {
-      source = "../../scripts/terraform/bootstrap_agent.sh"
+      source = "../../scripts/terraform/aws/bootstrap_agent.sh"
       destination = "bootstrap_agent.sh"
   }
 
   provisioner "file" {
-      source = "../../scripts/terraform/agent-hostname-detector.sh"
+      source = "../../scripts/terraform/aws/agent-hostname-detector.sh"
       destination = "agent-hostname-detector.sh"
   }
 

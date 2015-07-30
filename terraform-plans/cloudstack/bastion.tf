@@ -4,7 +4,8 @@ resource "cloudstack_instance" "bastion" {
     network = "${cloudstack_network.management.name}"
     template = "${var.instance_template.bastion}"
     zone ="${var.vpc_zone}"
-    expunge = true    
+    expunge = true
+    depends_on = "cloudstack_instance.ambari-master"
 }
 
 resource "cloudstack_port_forward" "bastion" {
@@ -13,15 +14,15 @@ resource "cloudstack_port_forward" "bastion" {
     forward {
         protocol = "tcp"
         private_port = 22
-        public_port = 22
-        virtual_machine = "${cloudstack_instance.bastion.id}"
+        public_port = 443
+        virtual_machine = "${cloudstack_instance.bastion.name}"
     }
 
     forward {
         protocol = "tcp"
         private_port = 80
         public_port = 80
-        virtual_machine = "${cloudstack_instance.bastion.id}"
+        virtual_machine = "${cloudstack_instance.bastion.name}"
     }
     depends_on = ["cloudstack_instance.bastion"]
 }

@@ -44,7 +44,7 @@ resource "cloudstack_network" "ambari" {
     zone              = "${var.vpc_zone}"
     vpc               = "${cloudstack_vpc.main.name}"
     aclid             = "${cloudstack_network_acl.analytics.id}"
-    depends_on        = "cloudstack_instance.bastion"
+//    depends_on        = "cloudstack_instance.bastion"
 }
 
 resource "cloudstack_ipaddress" "ambari" {

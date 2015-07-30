@@ -1,0 +1,723 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ambari",
+				"ambari-agent-0"
+			],
+			[
+				"pyspark",
+				"pyspark_csv"
+			],
+			[
+				"bo",
+				"body"
+			],
+			[
+				"cf",
+				"cfg	(install-script.txt)"
+			],
+			[
+				"cl",
+				"cloud	(install-script.txt)"
+			],
+			[
+				"amb",
+				"ambari"
+			],
+			[
+				"SERVI",
+				"SERVICE_NAME	(start-server)"
+			],
+			[
+				"SER",
+				"SERVICE_NAME"
+			],
+			[
+				"ssh",
+				"ssh_host_dsa_key	(Dockerfile)"
+			],
+			[
+				"access",
+				"access_token"
+			],
+			[
+				"fusang",
+				"fusang-7077	(Dockerfile)"
+			],
+			[
+				"SPARK",
+				"SPARK_MASTER	(start.sh)"
+			],
+			[
+				"spark",
+				"spark-master"
+			],
+			[
+				"sysprep",
+				"sysprep2008"
+			],
+			[
+				"windo",
+				"windows-shell"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "terraform-plans/cloudstack/ambari-master.tf",
+			"settings":
+			{
+				"buffer_size": 3191,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 167.0,
+		"last_filter": "git push",
+		"selected_items":
+		[
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git stash",
+				"Git: Stash Drop"
+			],
+			[
+				"git stas",
+				"Git: Stash Drop"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git pull ",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git diff",
+				"Git: Diff Staged Files"
+			],
+			[
+				"git comit",
+				"Git: Commit"
+			],
+			[
+				"gitignore",
+				"Git: Update Project Ignored Files"
+			],
+			[
+				"text",
+				"Text Pastry: Paste Lines"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"indent",
+				"IndentX: Indent & format JSON"
+			],
+			[
+				"termin",
+				"Terminality: Browse Commands..."
+			],
+			[
+				"packer",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit history"
+			],
+			[
+				"git p",
+				"Git: Push"
+			],
+			[
+				"git fetch",
+				"Git: Fetch"
+			],
+			[
+				"git pu",
+				"Git: Pull"
+			],
+			[
+				"git commitr",
+				"Git: Commit history"
+			],
+			[
+				"git rese",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"git merge",
+				"Git: Merge Branch"
+			],
+			[
+				"git drop",
+				"Git: Stash Drop"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"git chec",
+				"Git: Change Branch"
+			],
+			[
+				"git branc",
+				"Git: Change Branch"
+			],
+			[
+				"git check",
+				"Git: Checkout Tag"
+			],
+			[
+				"git c",
+				"Git: Change Branch"
+			],
+			[
+				"git ",
+				"Git: Commit history"
+			],
+			[
+				"git fe",
+				"Git: Fetch"
+			],
+			[
+				"git bra",
+				"Git: Change Branch"
+			],
+			[
+				"git bran",
+				"Git: Change Branch"
+			],
+			[
+				"git br",
+				"Git: Change Branch"
+			],
+			[
+				"git ad",
+				"Git: Add Current File"
+			],
+			[
+				"git pusgh",
+				"Git: Push Tags"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"git commi	",
+				"Git: Commit"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"cd ~",
+			"ls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/kmeinster/GitHub/ambari-hub",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack",
+		"/Users/kmeinster/GitHub/Fusang/Application",
+		"/Users/kmeinster/GitHub/Fusang/Terraform",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws"
+	],
+	"file_history":
+	[
+		"/Users/kmeinster/GitHub/Fusang/Application/rf_input.csv",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/bastion.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/ambari-master.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/variables.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/ambari-master-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/variables.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/variables.tf.example",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/analytics-network.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/ambari-agents.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/management-network.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/ambari-serveragents-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/cloudstack/provider.tf",
+		"/Users/kmeinster/GitHub/Fusang/Application/Fusang_sotl_v2_karsten.py",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/ambari-clientsagents-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/README.md",
+		"/Users/kmeinster/GitHub/Fusang/Application/Fusang_sotl_v2.py",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/route53.tf",
+		"/Users/kmeinster/GitHub/Fusang/Application/NewFusang_accum.py",
+		"/Users/kmeinster/GitHub/Fusang/Application/NH_Newfusang.py",
+		"/Users/kmeinster/GitHub/Fusang/Application/Fusang.py",
+		"/Users/kmeinster/GitHub/Fusang/Application/NewFusang.py",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/provider.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/ambari-agents-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/ambari-server-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/security_groups.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/packer/ambari_agent.json",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/public-subnet.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/terraform-plans/aws/variables.tf.example",
+		"/Users/kmeinster/GitHub/Fusang/Application/pyspark_csv.py",
+		"/Users/kmeinster/GitHub/ambari-hub/packer/environmentvariables.src",
+		"/Users/kmeinster/GitHub/ambari-hub/.gitignore",
+		"/Users/kmeinster/GitHub/ambari-hub/graph.html",
+		"/Users/kmeinster/GitHub/ambari-hub/variables.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/security_groups.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/environment-variables.source",
+		"/Users/kmeinster/GitHub/ambari-hub/route53.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/ambari-server-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/ambari-agents-nodes.tf",
+		"/Users/kmeinster/GitHub/ambari-hub/ambari-agent.ini",
+		"/Users/kmeinster/GitHub/ambari-hub/bootstrap_server.sh",
+		"/Users/kmeinster/GitHub/ambari-hub/bootstrap_agent.sh",
+		"/Users/kmeinster/GitHub/ambari-hub/provider.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/bootstrap_agent.sh",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/route53.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/ambari-server-nodes.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/ambari-agents-nodes.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/ambari-agent.ini",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/variables.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/TODO.txt",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/bootstrap_server.sh",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/agent-hostname-detector.sh",
+		"/Users/kmeinster/GitHub/Fusang/Packer/aws/ambari_agent.json",
+		"/Users/kmeinster/GitHub/Fusang/Packer/aws/ambari-master.json",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/info_root.txt",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/info_centos.txt",
+		"/Users/kmeinster/GitHub/Fusang/Packer/aws/environmentvariables.src",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/hadoop-nodes.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/bootstrap.sh",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/user_data_script.txt",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/provider.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/install-script.txt",
+		"/Users/kmeinster/jantje.sh",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/ambari-nodes.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/bootstrap.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/change-hostname-ambari-agent.ini.txt",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/user-data.txt",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/base/Dockerfile",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/master/Dockerfile",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/agent/Dockerfile",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/security_groups.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/public-subnet",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/aws/environment-variables.source",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/admin-server.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/variables.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/mesos-masters.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/mesos-network.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/mesos-slaves.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/mgmt-environment.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/provider.tf",
+		"/Users/kmeinster/GitHub/Fusang/Terraform/cloudstack/script.sh",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/mesos-masters.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/mesos-slaves.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/variables.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform-cs.py",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/mgmt-environment.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/mesos-network.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/admin-server.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/script.sh",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/provider.tf",
+		"/Users/kmeinster/GitHub/mesos/terraform/aws-public/provider.tf",
+		"/Users/kmeinster/GitHub/mesos/packer/scripts/common/install_consul.sh",
+		"/Users/kmeinster/GitHub/mesos/packer/ubuntu-14.04_amd64.json",
+		"/Users/kmeinster/GitHub/mesos/packer/scripts/ubuntu/install_mesos.sh",
+		"/Users/kmeinster/GitHub/mesos/terraform/cloudstack/terraform.tfvars",
+		"/Users/kmeinster/GitHub/Eirini-FT/www/mcc-ft-www.tf",
+		"/Users/kmeinster/GitHub/Eirini-FT/database/mcc-ft-db.tf",
+		"/Users/kmeinster/projects/apollo_original/packer/ubuntu-14.04_amd64-amis.json",
+		"/Users/kmeinster/GitHub/mesos/blurp.Dockerfile",
+		"/Users/kmeinster/GitHub/mesos/packer/karsten-ubuntu-14.04_amd64-amis.json",
+		"/Users/kmeinster/GitHub/mesos/packer/ubuntu-14.04_amd64-amis.json",
+		"/Users/kmeinster/GitHub/Eirini-FT/terraform.tfstate",
+		"/Users/kmeinster/GitHub/Eirini-FT/variables.tf",
+		"/Users/kmeinster/GitHub/Eirini-FT/terraform.tfvars",
+		"/Users/kmeinster/GitHub/Eirini-FT/main.tf",
+		"/Users/kmeinster/GitHub/Eirini-FT/mcc-ft-www.tf",
+		"/Users/kmeinster/GitHub/Eirini-FT/mcc-ft-db.tf",
+		"/Users/kmeinster/Downloads/Anaconda-2.2.0-Linux-x86_64.sh",
+		"/Users/kmeinster/Downloads/Anaconda-2.2.0-Linux-x86_64 (1).sh",
+		"/Users/kmeinster/GitHub/Fusang/curl-command.txt",
+		"/private/var/folders/lz/1h0bp7xd2cl4_7s1xkmlz30rgw601f/T/com.microsoft.Outlook/Outlook Temp/terraform.tfvars",
+		"/Users/kmeinster/beslistnl/terraform-demo/README.md",
+		"/Users/kmeinster/Google Drive/PoC/DataAnalytics/EET-environment-variables-v01.ps1",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Spark/Base/Dockerfile",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/base/internal-hostname.sh",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/base/public-hostname.sh",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/base/ambari.repo",
+		"/Users/kmeinster/GitHub/docker-ambari/ambari-server/start-server",
+		"/Users/kmeinster/GitHub/Fusang/Fusang.json",
+		"/Users/kmeinster/projects/apollo/set-variables.sh",
+		"/Users/kmeinster/projects/apollo/terraform/aws-public/mesos-slaves.tf",
+		"/Users/kmeinster/GitHub/Fusang/Ambari-master.json",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/start-agent",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/Dockerfile",
+		"/Users/kmeinster/GitHub/Fusang/Ambari-agent.json",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/start-server",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/public-hostname.sh",
+		"/Users/kmeinster/GitHub/Fusang/Docker/Ambari/internal-hostname.sh",
+		"/Users/kmeinster/GitHub/docker-ambari/ambari-server/Dockerfile"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"128.45",
+			"NUL",
+			"-",
+			"column",
+			"dumpty",
+			".id",
+			"apollo",
+			"mesos",
+			"ansible_playbook_run",
+			"ansible",
+			"digital",
+			"aws",
+			"source_ip",
+			"ansible",
+			"Path",
+			".Vars",
+			"ip",
+			"195.66.90.0",
+			"network",
+			"fastracker",
+			"anaconda",
+			"depen",
+			"shell",
+			"set-server",
+			"set-serv",
+			"consul",
+			"ambari",
+			"wait_for",
+			"vpc",
+			"pos",
+			"BRIDGE_IP",
+			"POSTGRES_DB",
+			"config-remote-jdbc",
+			"http://52.16.84.204:8080",
+			"ami",
+			"source",
+			"ami",
+			"chef-client",
+			"StagingDir",
+			"builder",
+			"p.config.RemoteCookbookPaths",
+			"RemoteCookbookPaths",
+			"cookbook",
+			"winrmfs",
+			"winrm",
+			"winrmfs",
+			"winrm",
+			"boxstarter",
+			"-y -y",
+			"choco",
+			"cinst",
+			"boxstarter_command",
+			"command",
+			"ecopapp212",
+			"echo",
+			"echo ",
+			"echo",
+			"IsWindows",
+			"P@ck3r",
+			"update"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"fusang",
+			"resource",
+			"home_ip",
+			"10.5.0.0",
+			"fastracker_www",
+			"http://54.76.89.13:8080",
+			"-y",
+			"choco install -y",
+			"choco -y",
+			"",
+			"echo \""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "terraform-plans/cloudstack/ambari-master.tf",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 74.0
+	},
+	"pinned_build_system": "",
+	"project": "Sublime.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
