@@ -1,17 +1,18 @@
 # ebs block store (/dev/sdf) will actually (internally on the instance) be called /dev/xvdf
 
 /* Ambari agent instances */
-resource "aws_instance" "ambari-agents-client" {
-  instance_type     = "${var.instance_type.clientagent}"
-  ami               = "${var.instance_ami.ambari-clientagent}"
-  count             = "${var.ambari-clientagents}"
+resource "aws_instance" "compute_client" {
+  instance_type     = "${var.instance_type.compute_client}"
+  ami               = "${var.instance_ami.compute_client}"
+  count             = "${var.counts.compute_clients}"
   key_name          = "${aws_key_pair.default.key_name}"
-  subnet_id         = "${aws_subnet.public.id}"
+#  subnet_id         = "${lookup(aws_subnet.hadoop.*.id, count.index)}"
+  subnet_id         = "${element(aws_subnet.hadoop.*.id, count.index)}"
   source_dest_check = false
   security_groups   = ["${aws_security_group.default.id}"]
   tags {
-    Name            = "${var.hostname.clientagents}-${count.index}"
-    Role            = "Ambari Client Agent ${count.index}."
+    Name            = "${var.hostname.compute_client}-${count.index}"
+    Role            = "Ambari Compute Client ${count.index}."
   }
   root_block_device {
   volume_size             = "${var.root_block_device.volume_size}"
@@ -60,8 +61,8 @@ resource "aws_instance" "ambari-agents-client" {
       "sudo cp agent-hostname-detector.sh /etc/ambari-agent",
       "sudo chmod +x /etc/ambari-agent/agent-hostname-detector.sh",
       "sudo cp -f ambari-agent.ini /etc/ambari-agent/conf",
-      "./bootstrap_agent.sh ${var.hostname.clientagents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}",
-      "echo ${self.private_ip} ${var.hostname.clientagents}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} | sudo tee --append /etc/hosts",
+      "./bootstrap_agent.sh ${var.hostname.compute_client}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} ${var.hostname.master}.${var.domain_name.sub}.${var.domain_name.zone}",
+      "echo ${self.private_ip} ${var.hostname.compute_client}-${count.index}.${var.domain_name.sub}.${var.domain_name.zone} | sudo tee --append /etc/hosts",
       "sudo mkdir -p /var/run/ambari-agent/",
       "sudo /sbin/chkconfig ambari-agent on",
       "sudo service ambari-agent start"

@@ -1,9 +1,9 @@
 /* Ambari master instances */
-resource "aws_instance" "ambari-master" {
-  instance_type     = "${var.instance_type.ambari}"
-  ami               = "${var.instance_ami.ambari_server}"
+resource "aws_instance" "ambari_master" {
+  instance_type     = "${var.instance_type.master}"
+  ami               = "${var.instance_ami.master}"
   key_name          = "${aws_key_pair.default.key_name}"
-  subnet_id         = "${aws_subnet.public.id}"
+  subnet_id         = "${aws_subnet.hadoop.0.id}"
   source_dest_check = false
   security_groups   = ["${aws_security_group.default.id}"]
   tags {
